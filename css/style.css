@@ -6,14 +6,11 @@
 }
 .header .upper-line .navigation {
   line-height: 16px;
-  gap: 30px;
 }
 .header .center {
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #efefef;
 }
-
 .header .logo {
   gap: 20px;
   color: var(--primary-color);
@@ -23,18 +20,55 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.header .center .callback {
-  gap: 40px;
-}
-
 .header .bottom-line {
   padding-top: 30px;
   padding-bottom: 30px;
 }
 .header .bottom-line .navigation {
   line-height: 19px;
-  gap: 40px;
-  color: var(--color-black);
+}
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-black);
+  transition: all 0.2s linear;
+}
+.header .nav-link::after {
+  left: 50%;
+}
+.footer .nav-link::after {
+  left: 0;
+}
+.header .nav-link:hover::after {
+  left: 0;
+  width: 100%;
+}
+.footer .nav-link:hover::after {
+  width: 100%;
+}
+
+.logo svg path {
+  transition: all 0.2s linear;
+}
+.logo:hover svg path.center-line {
+  fill: var(--secondary-color);
+}
+.logo:hover svg path.border-line {
+  fill: var(--primary-color);
+}
+
+a[href^='tel'] {
+  transition: all 0.2s linear;
+}
+a[href^='tel']:hover {
+  color: var(--primary-color);
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
@@ -71,27 +105,21 @@
   margin-bottom: 38px;
   color: var(--color-black);
 }
-.main-content .card-wrap {
-  gap: 30px;
-}
 .main-content .card {
+  width: 100%;
   max-width: 255px;
-  background-color: var(--color-white);
   padding: 25px 30px;
   text-align: center;
 }
-
 .card .image {
   display: block;
   aspect-ratio: 1.17/1;
   object-fit: contain;
   margin-bottom: 20px;
 }
-
 .card .description {
   margin-bottom: 20px;
 }
-
 .card .price {
   font-size: 21px;
   font-weight: 500;
@@ -99,4 +127,90 @@
   letter-spacing: 0.05em;
   margin-bottom: 20px;
   color: var(--color-black);
+}
+
+.contacts-wrapper {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.contacts-wrapper .contact-card {
+  padding: 35px 45px;
+}
+.contacts-wrapper .contact-card.card-1 .wrap {
+  background: url(../images/mail.png) no-repeat right center;
+  padding-right: 170px;
+}
+.contacts-wrapper .contact-card.card-2 .wrap {
+  max-width: min-content;
+}
+.contacts-wrapper .contact-card .contact-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  margin-bottom: 25px;
+}
+.contacts-wrapper .contact-card .description {
+  margin-bottom: 25px;
+}
+.contacts-wrapper .contact-card .input {
+  line-height: 16px;
+  border-radius: 30px;
+  border: none;
+  padding: 10px 25px;
+}
+
+.partners-wrapper {
+  gap: 1px;
+  margin-bottom: 80px;
+}
+.partners-wrapper .item {
+  padding: 35px;
+  min-width: 23%;
+}
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+.footer .level-up {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.footer .level-up .title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+.footer .level-up .list {
+  list-style: none;
+  margin-top: 25px;
+  font-size: 12px;
+  line-height: 28px;
+  color: var(--font-light);
+}
+.footer .center {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.footer .level-down {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--font-light);
+}
+.social-link svg circle,
+.social-link svg path {
+  transition: all 0.2s linear;
+}
+.social-link:hover svg circle {
+  stroke: #77a7ff;
+}
+.social-link:hover svg path {
+  fill: #1877f2;
+}
+
+.toTop {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
 }
